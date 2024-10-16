@@ -1,0 +1,88 @@
+body {
+    /* background-color: pink; */
+    background-color: rgb(212, 215, 218);
+}
+
+nav {
+    background-color: rebeccapurple;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    margin-right: 10rem;
+}
+
+.flex>a {
+    padding: 5px;
+    text-decoration: none;
+}
+
+.links>a {
+    color: rgb(255, 255, 255);
+}
+
+.foot>a {
+    color: black;
+}
+
+.posts {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 5rem;
+}
+
+.post {
+    border: 2px solid black;
+    padding: 15px;
+    width: 500px;
+    height: 300px;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 3rem;
+}
+
+.pagination>h2 {
+    border: 2px solid rgb(8, 134, 138);
+    padding: 10px 20px;
+    border-radius: 15px;
+    background-color: rgb(24, 118, 141);
+    cursor: pointer;
+}
+
+.pagination>h2>a {
+    text-decoration: none;
+    color: white;
+}
+
+.input {
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.submit {
+    background-color: blueviolet;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    margin-left: 5rem;
+    margin-top: 3rem;
+}
+form{
+    display: flex;
+    justify-content: center;
+}

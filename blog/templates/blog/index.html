@@ -1,0 +1,36 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+  <h2>Index Page</h2>
+  <h2>{{ blog_title|lower }} : {{ blog_title|length }} : {{ blog_title|truncatewords:1 }}</h2>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, praesentium voluptatum molestiae laborum odio nulla cum possimus dolorum quam illum maxime deserunt quaerat facilis doloribus laudantium, corrupti quo. Quia, tenetur?</p>
+  {% if page_obj %}
+    <div class="posts">
+      {% for item in page_obj %}
+        <div class="post">
+          <img src={{item.img_url}} height="150" width="350"/>
+          <h2>{{ item.title }}</h2>
+          <p>{{ item.content | truncatechars:70}}</p>
+          <a href="{% url 'blog:details' slug=item.slug %}"> Read More...</a>
+          <h4>{{item.category.name}}</h4>
+          {% comment %} <a href="/blog/post/{{item.id}}"> Read More...</a> {% endcomment %}
+        </div>
+      {% endfor %}
+      {% if page_obj.has_other_pages%}
+      <div class="pagination">
+        {% if page_obj.has_previous%}
+        <h2><a href="?page=1">first</a></h2>
+        <h2><a href="?page={{page_obj.previous_page_number}}">previous</a></h2>
+        {% endif%}
+        <h2><a href="?page=1">Page {{page_obj.number}} of {{page_obj.paginator.num_pages}}</a> </h2>
+        {% if page_obj.has_next%}
+        <h2><a href="?page={{page_obj.next_page_number}}">next</a></h2>
+        <h2><a href="?page={{page_obj.paginator.num_pages}}">last</a></h2>
+        {% endif%}
+      </div>
+      {% endif%}
+    </div>
+  {% else %}
+    <p>No Post</p>
+  {% endif %}
+{% endblock %}
